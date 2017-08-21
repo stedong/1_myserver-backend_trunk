@@ -1,0 +1,11 @@
+apply plugin: 'pegasus'
+// apply plugin: 'java' will NOT create restspec.json
+// needed for clint binding generation
+
+ext.apiProject = project(':myserver:rest-api')
+dependencies {
+    //到第三方找到package用compile
+    compile 'com.linkedin.pegasus:restli-server:' + pegasusVersion;
+    //在本地package用compile project
+    compile project(':myserver:rest-api')
+}
